@@ -3,14 +3,14 @@ package com.unamba.cinemagicoabancay.login;
 import com.unamba.cinemagicoabancay.body.homeAdmin;
 import com.unamba.cinemagicoabancay.body.homeNormal;
 import java.sql.*;
-import com.unamba.cinemagicoabancay.databaseconnection.dbConnection2;
+import com.unamba.cinemagicoabancay.databaseconnection.dbConnection;
 import java.awt.Color;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 public class login extends javax.swing.JFrame {
     int xMouse,yMouse;
-    dbConnection2 cc=new dbConnection2();
+    dbConnection cc=new dbConnection();
     Connection con=cc.connect();
     String user,pswd;
     public login() {
@@ -19,8 +19,7 @@ public class login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         jPanelPrincipalHead.setOpaque(false);
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -377,14 +376,7 @@ public class login extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_panelRoundOutMouseClicked
 
-    public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new login().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelBienvenido;
