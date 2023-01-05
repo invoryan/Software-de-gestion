@@ -64,7 +64,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="com.unamba.cinemagicoabancay.inicio.PanelRound" name="panelRound1">
+        <Container class="com.unamba.cinemagicoabancay.login.PanelRound" name="panelRound1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3a" green="27" red="20" type="rgb"/>
@@ -184,7 +184,7 @@
                 <Property name="text" type="java.lang.String" value="Nueva Contrase&#xf1;a:"/>
               </Properties>
             </Component>
-            <Container class="com.unamba.cinemagicoabancay.inicio.PanelRound" name="panelRound2">
+            <Container class="com.unamba.cinemagicoabancay.login.PanelRound" name="panelRound2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e2" green="ac" red="0" type="rgb"/>

@@ -1,6 +1,6 @@
 package com.unamba.cinemagicoabancay.body.panels;
 
-import com.unamba.cinemagicoabancay.body.home;
+import com.unamba.cinemagicoabancay.body.homeAdmin;
 import com.unamba.cinemagicoabancay.circleLabel.CLabel;
 import java.awt.Color;
 
@@ -22,7 +22,7 @@ public class addUserPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        panelRound1 = new com.unamba.cinemagicoabancay.inicio.PanelRound();
+        panelRound1 = new com.unamba.cinemagicoabancay.login.PanelRound();
         jLabelName = new javax.swing.JLabel();
         jTextFieldName = new javax.swing.JTextField();
         jLabelUser = new javax.swing.JLabel();
@@ -30,7 +30,7 @@ public class addUserPanel extends javax.swing.JPanel {
         jLabelDni = new javax.swing.JLabel();
         jTextFieldDni = new javax.swing.JTextField();
         jLabelPassword = new javax.swing.JLabel();
-        panelRound2 = new com.unamba.cinemagicoabancay.inicio.PanelRound();
+        panelRound2 = new com.unamba.cinemagicoabancay.login.PanelRound();
         jLabel13 = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
@@ -232,7 +232,7 @@ public class addUserPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldDni;
     private javax.swing.JTextField jTextFieldName;
     private javax.swing.JTextField jTextFieldUser;
-    private com.unamba.cinemagicoabancay.inicio.PanelRound panelRound1;
-    private com.unamba.cinemagicoabancay.inicio.PanelRound panelRound2;
+    private com.unamba.cinemagicoabancay.login.PanelRound panelRound1;
+    private com.unamba.cinemagicoabancay.login.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }

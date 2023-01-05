@@ -4,7 +4,6 @@ import com.unamba.cinemagicoabancay.body.panels.bookingPanelAdd;
 import com.unamba.cinemagicoabancay.body.panels.homePanel;
 import com.unamba.cinemagicoabancay.body.panels.CloseSessionPanel;
 import com.unamba.cinemagicoabancay.body.panels.addFood_DrinkPanel;
-import com.unamba.cinemagicoabancay.body.panels.addUserPanel;
 import com.unamba.cinemagicoabancay.body.panels.bookingPanelClient;
 import com.unamba.cinemagicoabancay.body.panels.editPanel;
 import com.unamba.cinemagicoabancay.body.panels.inventoryFood_DrinkPanel;
@@ -19,9 +18,9 @@ import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public class home extends javax.swing.JFrame {
-    int xMouse,yMouse,menuHomeClicked=0,menuBookingClicked=0,userClicked=0,editClicked=0,closedClicked=0,BookingPart1Clicked=0,BookingPart2Clicked=0,reportClicked=0,promotionClicked=0,Food_DrinkClicked=0,addFood_DrinkClicked=0,inventoryClicked=0,addUserClicked=0;
-    public home() {
+public class homeNormal extends javax.swing.JFrame {
+    int xMouse,yMouse,menuHomeClicked=0,menuBookingClicked=0,userClicked=0,editClicked=0,closedClicked=0,BookingPart1Clicked=0,BookingPart2Clicked=0,reportClicked=0,promotionClicked=0,Food_DrinkClicked=0,addFood_DrinkClicked=0,inventoryClicked=0,addUserClicked=0,usersClicked=0;
+    public homeNormal() {
         initComponents();
         this.setMinimumSize(new Dimension(1200, 700));
         this.setExtendedState(this.MAXIMIZED_BOTH);
@@ -96,8 +95,6 @@ public class home extends javax.swing.JFrame {
         jLabelFood_Drink1 = new javax.swing.JLabel();
         jPanelFood_Drink2 = new javax.swing.JPanel();
         jLabelFoodDrink2 = new javax.swing.JLabel();
-        jPanelAddUser = new javax.swing.JPanel();
-        jLabelAddUser = new javax.swing.JLabel();
         jPanelPrincipal = new javax.swing.JPanel();
         jPanelPrincipalHead = new javax.swing.JPanel();
         jPanelElementsWindows = new javax.swing.JPanel();
@@ -114,6 +111,7 @@ public class home extends javax.swing.JFrame {
         jPanelUserConfiguration = new javax.swing.JPanel();
         jLabelEdit = new javax.swing.JLabel();
         jLabelCloseSession = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanelPrincipalBodyPart2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -448,38 +446,6 @@ public class home extends javax.swing.JFrame {
             .addComponent(jLabelFoodDrink2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanelAddUser.setBackground(new java.awt.Color(0, 0, 0));
-        jPanelAddUser.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelAddUserMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelAddUserMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelAddUserMouseExited(evt);
-            }
-        });
-
-        jLabelAddUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelAddUser.setForeground(new java.awt.Color(225, 225, 225));
-        jLabelAddUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unamba/cinemagicoabancay/body/img/Icons/addUser.png"))); // NOI18N
-        jLabelAddUser.setText("Agregar usuario");
-
-        javax.swing.GroupLayout jPanelAddUserLayout = new javax.swing.GroupLayout(jPanelAddUser);
-        jPanelAddUser.setLayout(jPanelAddUserLayout);
-        jPanelAddUserLayout.setHorizontalGroup(
-            jPanelAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddUserLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanelAddUserLayout.setVerticalGroup(
-            jPanelAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanelMenuLayout);
         jPanelMenuLayout.setHorizontalGroup(
@@ -494,7 +460,6 @@ public class home extends javax.swing.JFrame {
             .addComponent(jPanelFood_Drink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelFood_Drink1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelFood_Drink2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelMenuLayout.setVerticalGroup(
             jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,9 +483,7 @@ public class home extends javax.swing.JFrame {
                 .addComponent(jPanelFood_Drink1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelFood_Drink2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGap(0, 163, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelMenu, java.awt.BorderLayout.LINE_START);
@@ -724,13 +687,18 @@ public class home extends javax.swing.JFrame {
                 .addComponent(jPanelUserConfiguration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("Empleado");
+
         javax.swing.GroupLayout jPanelPrincipalHeadLayout = new javax.swing.GroupLayout(jPanelPrincipalHead);
         jPanelPrincipalHead.setLayout(jPanelPrincipalHeadLayout);
         jPanelPrincipalHeadLayout.setHorizontalGroup(
             jPanelPrincipalHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalHeadLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jLabelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelPrincipalHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jPanelUser, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -747,6 +715,8 @@ public class home extends javax.swing.JFrame {
                     .addGroup(jPanelPrincipalHeadLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabelDate)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -802,13 +772,13 @@ public class home extends javax.swing.JFrame {
         promotionClicked=0;
         Food_DrinkClicked=0;
         addUserClicked=0;
+        usersClicked=0;
         //background
         jPanelHome.setBackground(new Color(51,51,51));
         jPanelBooking.setBackground(new Color(0,0,0));
         jPanelReport.setBackground(new Color(0,0,0));
         jPanelPromotion.setBackground(new Color(0,0,0));
         jPanelFood_Drink.setBackground(new Color(0,0,0));
-        jPanelAddUser.setBackground(new Color(0,0,0));
         
         //closed buttons booking
         jPanelBookingPart1.setVisible(false);
@@ -842,13 +812,13 @@ public class home extends javax.swing.JFrame {
         promotionClicked=0;
         Food_DrinkClicked=0;
         addUserClicked=0;
+        usersClicked=0;
         //background
         jPanelHome.setBackground(new Color(0,0,0));
         jPanelBooking.setBackground(new Color(51,51,51));
         jPanelReport.setBackground(new Color(0,0,0));
         jPanelPromotion.setBackground(new Color(0,0,0));
         jPanelFood_Drink.setBackground(new Color(0,0,0));
-        jPanelAddUser.setBackground(new Color(0,0,0));
         
         //closed buttons booking
         /*jPanelBookingPart1.setVisible(false);
@@ -1004,13 +974,14 @@ public class home extends javax.swing.JFrame {
         promotionClicked=0;
         Food_DrinkClicked=0;
         addUserClicked=0;
+        usersClicked=0;
         //background
         jPanelHome.setBackground(new Color(0,0,0));
         jPanelBooking.setBackground(new Color(0,0,0));
         jPanelReport.setBackground(new Color(51,51,51));
         jPanelPromotion.setBackground(new Color(0,0,0));
         jPanelFood_Drink.setBackground(new Color(0,0,0));
-        jPanelAddUser.setBackground(new Color(0,0,0));
+
         
         //closed buttons booking
         jPanelBookingPart1.setVisible(false);
@@ -1082,13 +1053,14 @@ public class home extends javax.swing.JFrame {
         promotionClicked=0;
         Food_DrinkClicked+=1;
         addUserClicked=0;
+        usersClicked=0;
         //background
         jPanelHome.setBackground(new Color(0,0,0));
         jPanelBooking.setBackground(new Color(0,0,0));
         jPanelReport.setBackground(new Color(0,0,0));
         jPanelPromotion.setBackground(new Color(0,0,0));
         jPanelFood_Drink.setBackground(new Color(51,51,51));
-        jPanelAddUser.setBackground(new Color(0,0,0));
+
         
         //closed buttons booking
         jPanelBookingPart1.setVisible(false);
@@ -1138,13 +1110,14 @@ public class home extends javax.swing.JFrame {
         promotionClicked=1;
         Food_DrinkClicked=0;
         addUserClicked=0;
+        usersClicked=0;
         //background
         jPanelHome.setBackground(new Color(0,0,0));
         jPanelBooking.setBackground(new Color(0,0,0));
         jPanelReport.setBackground(new Color(0,0,0));
         jPanelPromotion.setBackground(new Color(51,51,51));
         jPanelFood_Drink.setBackground(new Color(0,0,0));
-        jPanelAddUser.setBackground(new Color(0,0,0));
+
         
         //closed buttons booking
         jPanelBookingPart1.setVisible(false);
@@ -1233,57 +1206,6 @@ public class home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPanelFood_Drink2MouseExited
 
-    private void jPanelAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAddUserMouseClicked
-        //clicked
-        menuHomeClicked=0;
-        menuBookingClicked=0;
-        reportClicked=0;
-        promotionClicked=0;
-        Food_DrinkClicked=0;
-        addUserClicked=1;
-        //background
-        jPanelHome.setBackground(new Color(0,0,0));
-        jPanelBooking.setBackground(new Color(0,0,0));
-        jPanelReport.setBackground(new Color(0,0,0));
-        jPanelPromotion.setBackground(new Color(0,0,0));
-        jPanelFood_Drink.setBackground(new Color(0,0,0));
-        jPanelAddUser.setBackground(new Color(51,51,51));
-        
-        //closed buttons booking
-        jPanelBookingPart1.setVisible(false);
-        jPanelBookingPart1.setBackground(new Color(0,0,0));
-        jPanelBookingPart2.setVisible(false);
-        jPanelBookingPart2.setBackground(new Color(0,0,0));
-        BookingPart1Clicked=0;
-        BookingPart2Clicked=0;       
-        
-        //closed buttons Food_Drink
-        jPanelFood_Drink1.setVisible(false);
-        jPanelFood_Drink1.setBackground(new Color(0,0,0));
-        jPanelFood_Drink2.setVisible(false);
-        jPanelFood_Drink2.setBackground(new Color(0,0,0));
-        addFood_DrinkClicked=0;
-        inventoryClicked=0;
-        //action
-        addUserPanel pl=new addUserPanel();
-        jPanelPrincipalBodyPart2.removeAll();
-        jPanelPrincipalBodyPart2.add(pl,BorderLayout.CENTER);
-        jPanelPrincipalBodyPart2.revalidate();
-        jPanelPrincipalBodyPart2.repaint();
-    }//GEN-LAST:event_jPanelAddUserMouseClicked
-
-    private void jPanelAddUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAddUserMouseEntered
-        if(addUserClicked==0){
-            jPanelAddUser.setBackground(new Color(51,51,51));
-        }
-    }//GEN-LAST:event_jPanelAddUserMouseEntered
-
-    private void jPanelAddUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAddUserMouseExited
-        if(addUserClicked==0){
-            jPanelAddUser.setBackground(new Color(0,0,0));
-        }
-    }//GEN-LAST:event_jPanelAddUserMouseExited
-
     private void jLabelCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseExited
         jLabelClose.setBackground(new Color(242,242,242));
         jLabelClose.setOpaque(false);
@@ -1332,7 +1254,7 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabelAddUser;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelBooking;
     private javax.swing.JLabel jLabelBookingPart1;
     private javax.swing.JLabel jLabelBookingPart2;
@@ -1354,7 +1276,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTitle1;
     private javax.swing.JLabel jLabelTitle2;
     private javax.swing.JLabel jLabelUser;
-    private javax.swing.JPanel jPanelAddUser;
     private javax.swing.JPanel jPanelBooking;
     private javax.swing.JPanel jPanelBookingPart1;
     private javax.swing.JPanel jPanelBookingPart2;

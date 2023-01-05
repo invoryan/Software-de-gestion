@@ -1,4 +1,4 @@
-package com.unamba.cinemagicoabancay.inicio;
+package com.unamba.cinemagicoabancay.login;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
