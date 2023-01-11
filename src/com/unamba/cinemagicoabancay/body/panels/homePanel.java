@@ -32,7 +32,7 @@ public class homePanel extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(775, 527));
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel1.setBackground(new java.awt.Color(217, 217, 217));
 
         jLabel1.setText("Home");
 

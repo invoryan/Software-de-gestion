@@ -16,7 +16,7 @@ public class dbConnection {
         try {
             Class.forName(driver);
             conexion=DriverManager.getConnection(url+db, user, password);
-            JOptionPane.showMessageDialog(null,"Conexión Exitosa");
+            //JOptionPane.showMessageDialog(null,"Conexión Exitosa");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error de conexion: "+e.getMessage());
         }
