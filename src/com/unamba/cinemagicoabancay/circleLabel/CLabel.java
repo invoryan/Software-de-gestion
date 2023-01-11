@@ -2,6 +2,7 @@ package com.unamba.cinemagicoabancay.circleLabel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -12,6 +13,8 @@ public class CLabel extends JLabel {
    private AbstractBorder circleBorder = new CircleBorder();       
    private int lineBorder=1; 
    private Color lineColor= Color.BLACK;
+   String pathImage="";
+   int x,y;
 
     /** Constructor */
      public CLabel()
@@ -34,11 +37,15 @@ public class CLabel extends JLabel {
      */
      public CLabel(int x,int y,int lineThickness,Color colorThickness,String pathImage)
      {
+        this.pathImage=pathImage;
+        this.x=x;
+        this.y=y;
         Dimension d = new Dimension(x,y);
         setSize(d);
         setPreferredSize(d);       
         //setText("CLabel");
-        ImageIcon imgIcon = new ImageIcon(getClass().getResource(pathImage));
+        //ImageIcon imgIcon = new ImageIcon(getClass().getResource(pathImage));
+        ImageIcon imgIcon = new ImageIcon(pathImage);
         Image imgEscalada = imgIcon.getImage().getScaledInstance(x,y, Image.SCALE_SMOOTH);
         Icon iconoEscalado = new ImageIcon(imgEscalada);
         setIcon(iconoEscalado);
@@ -49,6 +56,25 @@ public class CLabel extends JLabel {
         setVisible(true);       
         setBorder(circleBorder); 
      }
+     public CLabel(int x,int y,int lineThickness,Color colorThickness,BufferedImage img)
+     {
+        this.x=x;
+        this.y=y;
+        Dimension d = new Dimension(x,y);
+        setSize(d);
+        setPreferredSize(d);
+        ImageIcon imgIcon = new ImageIcon(img);
+        Image imgEscalada = imgIcon.getImage().getScaledInstance(x,y, Image.SCALE_SMOOTH);
+        Icon iconoEscalado = new ImageIcon(imgEscalada);
+        setIcon(iconoEscalado);
+        setLineBorder(lineThickness);
+        setLineColor(colorThickness);
+        setOpaque(true);
+        setHorizontalAlignment(CENTER);       
+        setVisible(true);       
+        setBorder(circleBorder); 
+     }
+     
     //Color de borde
     public Color getLineColor() {
         return lineColor;
@@ -69,5 +95,12 @@ public class CLabel extends JLabel {
         circleBorder = new CircleBorder(lineColor, lineBorder);
         this.lineBorder = lineBorder;        
         setBorder(circleBorder); 
+    }
+    public void setpathImg(String pathImage) {
+        this.pathImage=pathImage;
+        ImageIcon imgIcon = new ImageIcon(pathImage);
+        Image imgEscalada = imgIcon.getImage().getScaledInstance(x,y, Image.SCALE_SMOOTH);
+        Icon iconoEscalado = new ImageIcon(imgEscalada);
+        setIcon(iconoEscalado);
     }
 }

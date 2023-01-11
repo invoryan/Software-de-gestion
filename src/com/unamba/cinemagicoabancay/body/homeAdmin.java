@@ -2,16 +2,17 @@ package com.unamba.cinemagicoabancay.body;
 
 import com.unamba.cinemagicoabancay.body.panels.bookingPanelAdd;
 import com.unamba.cinemagicoabancay.body.panels.homePanel;
-import com.unamba.cinemagicoabancay.body.panels.CloseSessionPanel;
 import com.unamba.cinemagicoabancay.body.panels.addFood_DrinkPanel;
 import com.unamba.cinemagicoabancay.body.panels.addUserPanel;
 import com.unamba.cinemagicoabancay.body.panels.bookingPanelClient;
 import com.unamba.cinemagicoabancay.body.panels.editPanel;
-import com.unamba.cinemagicoabancay.body.panels.inventoryFood_DrinkPanel;
+import com.unamba.cinemagicoabancay.body.panels.inventaryFood_DrinkPanel;
 import com.unamba.cinemagicoabancay.body.panels.promotionPanel;
 import com.unamba.cinemagicoabancay.body.panels.reportPanel;
 import com.unamba.cinemagicoabancay.body.panels.usersPanel;
 import com.unamba.cinemagicoabancay.circleLabel.CLabel;
+import com.unamba.cinemagicoabancay.crud.CrudUsers;
+import com.unamba.cinemagicoabancay.login.login;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,10 +20,14 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class homeAdmin extends javax.swing.JFrame {
     int xMouse,yMouse,menuHomeClicked=0,menuBookingClicked=0,userClicked=0,editClicked=0,closedClicked=0,BookingPart1Clicked=0,BookingPart2Clicked=0,reportClicked=0,promotionClicked=0,Food_DrinkClicked=0,addFood_DrinkClicked=0,inventoryClicked=0,addUserClicked=0,usersClicked=0;
-    public homeAdmin() {
+    int respCloseSesion;
+    static String userLogged;
+    public homeAdmin(String userLogged) {
+        this.userLogged=userLogged;
         initComponents();
         this.setMinimumSize(new Dimension(1200, 700));
         this.setExtendedState(this.MAXIMIZED_BOTH);
@@ -53,13 +58,18 @@ public class homeAdmin extends javax.swing.JFrame {
         String userPath="/com/unamba/cinemagicoabancay/body/img/usuario1.jpg";
         CLabel cq=new CLabel(32, 32,0, Color.BLACK, userPath);
         jPanelImgUser.add(cq);
-        
         ImageIcon imgIcon = new ImageIcon(getClass().getResource("/com/unamba/cinemagicoabancay/body/img/Icons/expandIcon.png"));
         Image imgEscalada = imgIcon.getImage().getScaledInstance(jLabelIcon.getWidth(),jLabelIcon.getHeight(), Image.SCALE_SMOOTH);
         Icon iconoEscalado = new ImageIcon(imgEscalada);
         jLabelIcon.setIcon(iconoEscalado);
         
         jPanelUserConfiguration.setVisible(false);
+        
+        jLabelUser.setText(userLogged); 
+        
+        CrudUsers crud=new CrudUsers();
+        crud.userData(userLogged, jLabelUser, jLabelName);
+        crud.userImgShow(userLogged, cq);
     }
     public void contentStart(){
         menuHomeClicked=1;
@@ -1000,25 +1010,49 @@ public class homeAdmin extends javax.swing.JFrame {
     private void jLabelEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEditMouseClicked
         editClicked=1;
         closedClicked=0;
+        
         jLabelEdit.setBackground(new Color(57,167,225));
         jLabelCloseSession.setBackground(new Color(120,220,255));
-        editPanel ep=new editPanel();
+        editPanel ep=new editPanel(userLogged);
         jPanelPrincipalBodyPart2.removeAll();
         jPanelPrincipalBodyPart2.add(ep,BorderLayout.CENTER);
         jPanelPrincipalBodyPart2.revalidate();
         jPanelPrincipalBodyPart2.repaint();
+        
+        ImageIcon imgIcon = new ImageIcon(getClass().getResource("/com/unamba/cinemagicoabancay/body/img/Icons/expandIcon.png"));
+        Image imgEscalada = imgIcon.getImage().getScaledInstance(jLabelIcon.getWidth(),jLabelIcon.getHeight(), Image.SCALE_SMOOTH);
+        Icon iconoEscalado = new ImageIcon(imgEscalada);
+        jLabelIcon.setIcon(iconoEscalado);
+        userClicked=0;
+        jPanelUserConfiguration.setVisible(false);
+        editClicked=0;
+        closedClicked=0;
+        jLabelEdit.setBackground(new Color(120,220,255));
+        jLabelCloseSession.setBackground(new Color(120,220,255));
     }//GEN-LAST:event_jLabelEditMouseClicked
 
     private void jLabelCloseSessionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseSessionMouseClicked
         editClicked=0;
         closedClicked=1;
+        userClicked=0;
         jLabelCloseSession.setBackground(new Color(57,167,225));
         jLabelEdit.setBackground(new Color(120,220,255));
-        CloseSessionPanel ep=new CloseSessionPanel();
-        jPanelPrincipalBodyPart2.removeAll();
-        jPanelPrincipalBodyPart2.add(ep,BorderLayout.CENTER);
-        jPanelPrincipalBodyPart2.revalidate();
-        jPanelPrincipalBodyPart2.repaint();
+        respCloseSesion=JOptionPane.showConfirmDialog(null,"¿Desea cerrar sesion?","Cerrar Sesion",JOptionPane.YES_NO_OPTION);
+        if(respCloseSesion==0){
+            new login().setVisible(true);
+            this.dispose();
+        }
+        ImageIcon imgIcon = new ImageIcon(getClass().getResource("/com/unamba/cinemagicoabancay/body/img/Icons/expandIcon.png"));
+        Image imgEscalada = imgIcon.getImage().getScaledInstance(jLabelIcon.getWidth(),jLabelIcon.getHeight(), Image.SCALE_SMOOTH);
+        Icon iconoEscalado = new ImageIcon(imgEscalada);
+        jLabelIcon.setIcon(iconoEscalado);
+        userClicked=0;
+        jPanelUserConfiguration.setVisible(false);
+        editClicked=0;
+        closedClicked=0;
+        jLabelEdit.setBackground(new Color(120,220,255));
+        jLabelCloseSession.setBackground(new Color(120,220,255));
+        
     }//GEN-LAST:event_jLabelCloseSessionMouseClicked
 
     private void jPanelBookingPart1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBookingPart1MouseClicked
@@ -1270,7 +1304,7 @@ public class homeAdmin extends javax.swing.JFrame {
         jPanelFood_Drink2.setBackground(new Color(51,51,51));
         jPanelFood_Drink1.setBackground(new Color(0,0,0));
         addFood_DrinkClicked=0;
-        inventoryFood_DrinkPanel pl=new inventoryFood_DrinkPanel();
+        inventaryFood_DrinkPanel pl=new inventaryFood_DrinkPanel();
         jPanelPrincipalBodyPart2.removeAll();
         jPanelPrincipalBodyPart2.add(pl,BorderLayout.CENTER);
         jPanelPrincipalBodyPart2.revalidate();

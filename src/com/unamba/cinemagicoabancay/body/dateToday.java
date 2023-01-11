@@ -6,8 +6,14 @@ import javax.swing.JLabel;
 
 public class dateToday extends Thread {
     JLabel jLabel;
+    String date;
+    public dateToday() {
+    }
     public dateToday(JLabel jlabel) {
         this.jLabel=jlabel;
+    }
+    public String getDate() {
+        return date;
     }
     
     @Override
@@ -17,7 +23,6 @@ public class dateToday extends Thread {
                 Calendar date=new GregorianCalendar();
                 String dayString="",day,month,year,currentDate,hour,minute,second,format="",currentTime,TotalDate;
                 int dayWeek;
-
                 dayWeek=date.get(Calendar.DAY_OF_WEEK);
                 switch (dayWeek) {
                     case 1:  dayString="Domingo";            
@@ -51,7 +56,9 @@ public class dateToday extends Thread {
                 }
                 currentTime=hour+":"+minute+":"+second+" "+format;
                 TotalDate=dayString+" "+currentDate+" Hora "+currentTime;
+                
                 jLabel.setText(TotalDate);
+                this.date=currentDate;
                 Thread.sleep(1000);
             }
         } catch (Exception e) {
